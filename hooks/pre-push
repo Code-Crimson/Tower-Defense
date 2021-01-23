@@ -1,0 +1,25 @@
+#!/bin/sh
+command -v git-lfs >/dev/null 2>&1 || { echo >&2 "\nThis repository is configured for Git LFS but 'git-lfs' was not found on your path. If you no longer wish to use Git LFS, remove this hook by deleting .git/hooks/pre-push.\n"; exit 2; }
+git lfs pre-push "$@"
+
+current_branch=$(git symbolic-ref HEAD | sed -e 's,.*/\(.*\),\1,')
+
+
+case "$current_branch" in
+        #case 1
+        "master")
+                echo "master is a protected branch, create PR to merge"
+                exit 1 # push will not execute
+                ;;
+        #case 2
+        "develop")
+                echo "develop is a protected branch, create PR to merge"
+                exit 1 # push will not execute
+                ;;
+        #default
+        *)
+                exit 0 # push will execute
+                ;;
+
+esac
+

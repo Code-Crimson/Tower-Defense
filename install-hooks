@@ -1,0 +1,15 @@
+#!/bin/sh
+
+echo "Installing git hooks..."
+{
+	# remove default pre-push hook
+	rm .git/hooks/pre-push
+
+	# copy custom pre-push hook
+	cp hooks/* .git/hooks
+} || {
+	echo "Failed installing hooks."
+	exit 1
+}
+
+echo "All hooks are successfully installed"

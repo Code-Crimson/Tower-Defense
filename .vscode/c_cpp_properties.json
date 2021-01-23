@@ -1,0 +1,9 @@
+{
+	"configurations": [
+		{
+			"name": "TowerDefenseEditor Editor Win64 Development (TowerDefense)",
+			"intelliSenseMode": "msvc-x64",
+			"compileCommands": "D:\\Development\\Code Crimson\\Projects\\TowerDefense\\.vscode\\compileCommands_TowerDefense.json"
+		}
+	]
+}
